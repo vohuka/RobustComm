@@ -1,0 +1,13 @@
+% Generated Latency Profiling Table
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Operator / Defense & Latency ($\mu$s/decision) & Computational Complexity \\
+\midrule
+Mean (DIAL) & $8.90\mu\text{s}$ & $O(n d)$ \\
+Coordinate Median (RobustComm) & $32.06\mu\text{s}$ & $O(n d)$ \\
+Trimmed Mean & $13.40\mu\text{s}$ & $O(n d)$ \\
+Krum & $23.74\mu\text{s}$ & $O(n^2 d)$ \\
+Sun et al. (Ablation Ensemble) & $483.91\mu\text{s}$ & $O(S n d)$ \\
+R-MACRL (Autoencoder Filter) & $28.50\mu\text{s}$ & $O(S n d)$ \\
+\bottomrule
+\end{tabular}

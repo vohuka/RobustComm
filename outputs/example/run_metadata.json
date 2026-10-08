@@ -1,0 +1,66 @@
+{
+  "config": {
+    "aggregator": {
+      "beta": 0.2,
+      "f": 2,
+      "operator": "median"
+    },
+    "attack": {
+      "colluding": true,
+      "enabled": true,
+      "epsilon": 1.5,
+      "f": 2,
+      "mode": "adaptive",
+      "norm": "linf",
+      "step_size": 0.5,
+      "steps": 3,
+      "white_box": false
+    },
+    "env": {
+      "codebook_levels": 5,
+      "data_root": null,
+      "discrete": false,
+      "honest_dispersion": 0.5,
+      "horizon": 8,
+      "msg_dim": 4,
+      "n_agents": 9,
+      "name": "synthetic_comm",
+      "neighbors": 8,
+      "topology": "broadcast"
+    },
+    "eval": {
+      "bootstrap_samples": 300,
+      "episodes": 20,
+      "fractions": [
+        0.0,
+        0.11,
+        0.22,
+        0.33
+      ],
+      "target_reward_tau": 0.5
+    },
+    "output": {
+      "dir": "outputs/example"
+    },
+    "seed": 7,
+    "theory": {
+      "L_pi": 1.0,
+      "L_r": 1.0,
+      "gamma": 0.99
+    },
+    "training": {
+      "enabled": true,
+      "ensemble_size": 2,
+      "episodes": 20,
+      "lr": 0.05
+    }
+  },
+  "config_hash": "7090eb197e9c",
+  "note": "Synthetic smoke-test unless env.name is a real adapter with data_root set.",
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "platform": "Linux-6.8.0-124-generic-aarch64-with-glibc2.35",
+  "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+  "seed": 7,
+  "timestamp_utc": "2026-08-09T10:53:27.175172+00:00"
+}

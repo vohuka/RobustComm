@@ -1,0 +1,51 @@
+# Fast synthetic smoke-test demo. Outputs are labelled "synthetic smoke-test output,
+# not a paper result." Small sizes so it runs in seconds with no external data.
+seed: 0
+
+env:
+  name: synthetic_comm
+  n_agents: 7
+  msg_dim: 4
+  topology: broadcast
+  neighbors: 6
+  horizon: 10
+  honest_dispersion: 0.5
+  discrete: false
+  codebook_levels: 5
+  data_root: null
+
+aggregator:
+  operator: krum
+  f: 2
+  beta: 0.2
+
+attack:
+  enabled: true
+  f: 2
+  epsilon: 1.0
+  norm: linf
+  steps: 3
+  step_size: 0.5
+  mode: adaptive
+  colluding: false
+  white_box: false
+
+training:
+  enabled: true
+  episodes: 30
+  ensemble_size: 3
+  lr: 0.05
+
+eval:
+  episodes: 30
+  fractions: [0.0, 0.14, 0.28, 0.42]
+  target_reward_tau: 0.5
+  bootstrap_samples: 500
+
+theory:
+  L_pi: 1.0
+  L_r: 1.0
+  gamma: 0.99
+
+output:
+  dir: outputs/synthetic_demo

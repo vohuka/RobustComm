@@ -1,0 +1,9 @@
+variant,operator,adversarial_training,ensembles,discrete,clean_reward,adv_reward,drop
+Full RobustComm (median),median,True,True,False,0.9628080863344048,0.9507281336864056,0.012079952647999215
+Full RobustComm (trimmed mean),trmean,True,True,False,0.9695963440936538,0.9473165856545736,0.022279758439080255
+Full RobustComm (Krum),krum,True,True,False,0.9049821791750853,0.901598276495251,0.0033839026798342386
+Median - ensembles,median,True,False,False,0.9608200568559698,0.9478886008127269,0.012931456043242973
+Median - adv training,median,False,True,False,0.9593294536970576,0.9458650478885522,0.013464405808505386
+Median alone (plain control),median,False,False,False,0.9593294536970576,0.9458650478885522,0.013464405808505386
+Mean agg (no robust operator),mean,True,True,False,0.9773827695591047,0.8146156992673339,0.16276707029177084
+Messages = discrete,median,True,True,True,0.8889314500925404,0.8863137411207876,0.00261770897175273

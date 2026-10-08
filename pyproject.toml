@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robustcomm"
+version = "0.1.0"
+description = "Byzantine-resilient learned communication for cooperative MARL: robust message-space aggregation, surrogate message attacks, adversarial training, and the paper's theoretical bounds."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "RobustComm implementation" }]
+keywords = ["multi-agent RL", "Byzantine robustness", "robust aggregation", "adversarial training", "learned communication"]
+
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=1.5",
+    "pyyaml>=6.0",
+    "matplotlib>=3.6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.1", "mypy>=1.0"]
+
+[project.scripts]
+robustcomm = "robustcomm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+robustcomm = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true

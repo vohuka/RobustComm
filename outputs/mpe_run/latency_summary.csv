@@ -1,0 +1,7 @@
+Operator / Defense,Latency (us/step),Complexity
+Mean (DIAL),8.895909995771945,O(n d)
+Coordinate Median (RobustComm),32.058774994220585,O(n d)
+Trimmed Mean,13.399620004929602,O(n d)
+Krum,23.738310008775443,O(n^2 d)
+Sun et al. (Ablation Ensemble),483.9100700104609,O(S n d)
+R-MACRL (Autoencoder Filter),28.4965300001204,O(S n d)

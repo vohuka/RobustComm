@@ -1,0 +1,52 @@
+# RobustComm default configuration.
+# All fields are documented in docs/reproducibility.md and validated by
+# robustcomm.utils.validation. Runs offline on the synthetic environment.
+seed: 0
+
+env:
+  name: synthetic_comm        # synthetic_comm | dial | mpe | smac (real envs are adapters)
+  n_agents: 7                 # n (paper studies 3..50)
+  msg_dim: 4                  # message dimension d
+  topology: broadcast         # broadcast | ring | star | neighborhood
+  neighbors: 4                # inbound-neighbourhood size for ring/neighborhood
+  horizon: 20                 # T
+  honest_dispersion: 0.5      # B_i (Assumption A1); honest messages within this radius
+  discrete: false             # continuous vs discrete/quantised messages (RQ5)
+  codebook_levels: 5          # quantisation levels when discrete=true
+  data_root: null             # path to REAL env data on EC2 (adapters only; never auto-downloaded)
+
+aggregator:
+  operator: krum              # krum | median | trmean | mean (RobAgg, Alg 1 / Def 3.1-3.2)
+  f: 2                        # assumed Byzantine count for Krum (needs 2f+2<n_i)
+  beta: 0.2                   # trim level for trmean (needs beta >= f/n_i)
+
+attack:
+  enabled: true               # inter-agent message attack (Def 5.1, Alg 2)
+  f: 2                        # actual number of Byzantine senders
+  epsilon: 1.0                # per-message budget (Eq pertset)
+  norm: linf                  # linf | l2
+  steps: 5                    # inner FGSM steps L
+  step_size: 0.5              # alpha
+  mode: adaptive              # static | adaptive (adaptive attacks the deployed RobAgg)
+  colluding: false            # independent vs colluding senders
+  white_box: false            # false = surrogate (transfer); true = surrogate==victim (upper bound)
+
+training:
+  enabled: false              # RobustComm adversarial communication training (Alg 3, synthetic)
+  episodes: 50
+  ensemble_size: 3            # K MADDPG-style ensembles
+  lr: 0.05
+
+eval:
+  episodes: 50
+  fractions: [0.0, 0.1, 0.2, 0.3, 0.45]   # malicious-fraction sweep phi=f/n
+  target_reward_tau: 0.5      # tau for the Byzantine-tolerance fraction
+  bootstrap_samples: 1000
+
+theory:
+  L_pi: 1.0                   # Lipschitz policy constant (A3)
+  L_r: 1.0                    # Lipschitz reward constant (A4)
+  gamma: 0.99                 # discount
+
+output:
+  dir: outputs/experiment

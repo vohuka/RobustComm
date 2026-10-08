@@ -1,0 +1,52 @@
+# RobustComm MPE Particle Cooperative Communication Benchmark Configuration
+# Particle Communication & Navigation (Lowe et al., 2017; Mordatch & Abbeel, 2018)
+seed: 42
+
+env:
+  name: mpe                   # MPE multi-agent particle communication benchmark
+  n_agents: 7                 # n = 7 agents
+  msg_dim: 4                  # continuous message dimension d = 4
+  topology: broadcast         # broadcast / fully connected
+  horizon: 25                 # navigation steps per episode T = 25
+  honest_dispersion: 0.5      # honest message dispersion B_i (Assumption A1)
+  arena_size: 1.5             # 2D continuous arena radius
+  discrete: false
+  codebook_levels: 5
+  data_root: null
+
+aggregator:
+  operator: median            # median | krum | trmean | mean
+  f: 2                        # default Byzantine count
+  beta: 0.2                   # trim level
+
+attack:
+  enabled: true
+  type: bpda                  # BPDA smooth relaxation to defeat gradient masking
+  f: 2                        # Byzantine senders
+  epsilon: 1.0                # L_inf perturbation budget
+  norm: linf
+  steps: 5                    # attack optimization steps
+  step_size: 0.5
+  mode: adaptive              # adaptive attack against deployed aggregator
+  colluding: true             # coordinated cluster collusion
+  white_box: false
+
+training:
+  enabled: true
+  episodes: 50
+  ensemble_size: 3
+  lr: 0.05
+
+eval:
+  episodes: 50
+  fractions: [0.0, 0.14, 0.29, 0.43]  # exact f/n for n=7: f in {0, 1, 2, 3}
+  target_reward_tau: 0.8
+  bootstrap_samples: 1000
+
+theory:
+  L_pi: 1.0
+  L_r: 1.0
+  gamma: 0.99
+
+output:
+  dir: outputs/mpe_run

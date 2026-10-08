@@ -1,0 +1,16 @@
+% Generated MPE Benchmark Table across 5 seeds
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Method & $f=0$ ($\phi=0.0$, Clean) & $f=1$ ($\phi \approx 0.14$) & $f=2$ ($\phi \approx 0.29$) & $f=3$ ($\phi \approx 0.43$, Severe) \\
+\midrule
+Adv-training-only & $0.979 \pm 0.002$ & $0.938 \pm 0.002$ & $0.822 \pm 0.008$ & $0.677 \pm 0.013$ \\
+Krum-only & $0.890 \pm 0.001$ & $0.889 \pm 0.002$ & $0.888 \pm 0.002$ & $0.884 \pm 0.001$ \\
+Median-only (plain) & $0.959 \pm 0.001$ & $0.956 \pm 0.001$ & $0.945 \pm 0.001$ & $0.841 \pm 0.002$ \\
+No communication & $0.806 \pm 0.022$ & $0.816 \pm 0.022$ & $0.827 \pm 0.020$ & $0.838 \pm 0.019$ \\
+No defense (mean, DIAL) & $0.977 \pm 0.000$ & $0.916 \pm 0.001$ & $0.755 \pm 0.002$ & $0.578 \pm 0.001$ \\
+R-MACRL (Autoencoder filter) & $0.977 \pm 0.000$ & $0.972 \pm 0.001$ & $0.964 \pm 0.002$ & $0.948 \pm 0.004$ \\
+RobustComm (Krum) & $0.905 \pm 0.002$ & $0.904 \pm 0.002$ & $0.904 \pm 0.003$ & $0.900 \pm 0.002$ \\
+\textbf{RobustComm (Median)} & $0.962 \pm 0.000$ & $0.959 \pm 0.000$ & $0.949 \pm 0.001$ & $0.852 \pm 0.002$ \\
+Sun et al. (Ablation ensemble) & $0.977 \pm 0.000$ & $0.882 \pm 0.001$ & $0.750 \pm 0.002$ & $0.591 \pm 0.001$ \\
+\bottomrule
+\end{tabular}

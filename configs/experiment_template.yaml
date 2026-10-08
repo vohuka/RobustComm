@@ -1,0 +1,55 @@
+# Template for a REAL experiment on EC2 (paper-scale). This repository does NOT
+# download datasets or run paper-level experiments automatically. Fill env.data_root
+# after manually provisioning the environment/benchmark (see docs/ec2_experiment_guide.md).
+#
+# Until a real env adapter is provisioned, env.name=synthetic_comm is used so the
+# pipeline is runnable end-to-end for validation.
+seed: 0
+
+env:
+  name: synthetic_comm        # CHANGE to: dial | mpe | smac  (requires the adapter + data on EC2)
+  n_agents: 20                # paper sweep: {3,5,10,20,50}
+  msg_dim: 8                  # paper: {4,8,16}
+  topology: neighborhood      # broadcast | ring | star | neighborhood
+  neighbors: 6
+  horizon: 50
+  honest_dispersion: 0.5
+  discrete: false
+  codebook_levels: 8
+  data_root: null             # e.g. /data/dial  or  /data/mpe   (EC2 only; never auto-downloaded)
+
+aggregator:
+  operator: median            # krum | median | trmean | mean
+  f: 5
+  beta: 0.25
+
+attack:
+  enabled: true
+  f: 5
+  epsilon: 1.0
+  norm: linf
+  steps: 10
+  step_size: 0.3
+  mode: adaptive
+  colluding: true
+  white_box: false
+
+training:
+  enabled: true
+  episodes: 2000
+  ensemble_size: 5
+  lr: 0.01
+
+eval:
+  episodes: 200
+  fractions: [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.45]
+  target_reward_tau: 0.6
+  bootstrap_samples: 2000
+
+theory:
+  L_pi: 1.0
+  L_r: 1.0
+  gamma: 0.99
+
+output:
+  dir: outputs/experiment

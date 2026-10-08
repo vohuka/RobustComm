@@ -1,0 +1,8 @@
+variant,operator,adversarial_training,ensembles,discrete,clean_reward,adv_reward,note
+operator=krum,krum,True,True,False,0.905825967781982,0.9076283428948555,"synthetic smoke-test output, not a paper result"
+operator=median,median,True,True,False,0.9668313600172829,0.963523061056479,"synthetic smoke-test output, not a paper result"
+operator=trmean,trmean,True,True,False,0.973738357493291,0.9635458437732393,"synthetic smoke-test output, not a paper result"
+operator=mean(no robust agg),mean,True,True,False,0.9093756283389143,0.7608370271762682,"synthetic smoke-test output, not a paper result"
+adversarial_training=off,krum,False,False,False,0.9068909210177771,0.9020404577774638,"synthetic smoke-test output, not a paper result"
+ensembles=off,krum,True,False,False,0.8981763739556131,0.9049617639441117,"synthetic smoke-test output, not a paper result"
+messages=discrete (RQ5),krum,True,True,True,0.8466665493576302,0.839183495773184,"synthetic smoke-test output, not a paper result"

@@ -1,0 +1,67 @@
+{
+  "config": {
+    "aggregator": {
+      "beta": 0.2,
+      "f": 2,
+      "operator": "krum"
+    },
+    "attack": {
+      "colluding": false,
+      "enabled": true,
+      "epsilon": 1.0,
+      "f": 2,
+      "mode": "adaptive",
+      "norm": "linf",
+      "step_size": 0.5,
+      "steps": 5,
+      "white_box": false
+    },
+    "env": {
+      "codebook_levels": 5,
+      "data_root": null,
+      "discrete": false,
+      "honest_dispersion": 0.5,
+      "horizon": 20,
+      "msg_dim": 4,
+      "n_agents": 7,
+      "name": "synthetic_comm",
+      "neighbors": 4,
+      "topology": "broadcast"
+    },
+    "eval": {
+      "bootstrap_samples": 1000,
+      "episodes": 50,
+      "fractions": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.45
+      ],
+      "target_reward_tau": 0.5
+    },
+    "output": {
+      "dir": "outputs/experiment"
+    },
+    "seed": 0,
+    "theory": {
+      "L_pi": 1.0,
+      "L_r": 1.0,
+      "gamma": 0.99
+    },
+    "training": {
+      "enabled": false,
+      "ensemble_size": 3,
+      "episodes": 50,
+      "lr": 0.05
+    }
+  },
+  "config_hash": "8dc7de17856b",
+  "note": "Synthetic smoke-test unless env.name is a real adapter with data_root set.",
+  "numpy": "2.5.2",
+  "pandas": "3.0.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "seed": 0,
+  "timestamp_utc": "2026-09-07T10:10:59.111109+00:00"
+}

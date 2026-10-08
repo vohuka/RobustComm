@@ -1,0 +1,17 @@
+{
+  "fractions": [
+    0.0,
+    0.11,
+    0.22,
+    0.33
+  ],
+  "methods": [
+    "adv_only",
+    "krum_only",
+    "no_comm",
+    "no_defense",
+    "robustcomm_krum",
+    "robustcomm_median"
+  ],
+  "note": "synthetic smoke-test output, not a paper result"
+}

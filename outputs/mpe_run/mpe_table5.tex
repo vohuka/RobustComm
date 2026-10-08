@@ -1,0 +1,15 @@
+% Generated MPE Factorial Ablation Table with Student-t 95% CIs
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Configuration & Reward-under-attack & 95\% Student-$t$ CI & Clean reward & Within-model drop $\Delta$ \\
+\midrule
+Full RobustComm (Krum) & $0.904 \pm 0.003$ & [0.901, 0.908] & $0.905 \pm 0.003$ & $0.001$ \\
+Full RobustComm (median) & $0.949 \pm 0.002$ & [0.947, 0.951] & $0.962 \pm 0.001$ & $0.013$ \\
+Full RobustComm (trimmed mean) & $0.948 \pm 0.000$ & [0.947, 0.948] & $0.969 \pm 0.001$ & $0.022$ \\
+Mean agg (no robust operator) & $0.821 \pm 0.005$ & [0.815, 0.827] & $0.980 \pm 0.002$ & $0.159$ \\
+Median - adv training & $0.945 \pm 0.001$ & [0.943, 0.946] & $0.959 \pm 0.001$ & $0.014$ \\
+Median - ensembles & $0.948 \pm 0.001$ & [0.947, 0.949] & $0.962 \pm 0.000$ & $0.014$ \\
+Median alone (plain control) & $0.945 \pm 0.001$ & [0.943, 0.946] & $0.959 \pm 0.001$ & $0.014$ \\
+Messages = discrete & $0.891 \pm 0.006$ & [0.883, 0.898] & $0.893 \pm 0.008$ & $0.002$ \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,19 @@
+# Minimal example config (tiny; for a quick offline sanity run).
+seed: 7
+env:
+  name: synthetic_comm
+  n_agents: 9
+  msg_dim: 4
+  topology: broadcast
+  neighbors: 8
+  horizon: 8
+  honest_dispersion: 0.5
+  discrete: false
+  codebook_levels: 5
+  data_root: null
+aggregator: {operator: median, f: 2, beta: 0.2}
+attack: {enabled: true, f: 2, epsilon: 1.5, norm: linf, steps: 3, step_size: 0.5, mode: adaptive, colluding: true, white_box: false}
+training: {enabled: true, episodes: 20, ensemble_size: 2, lr: 0.05}
+eval: {episodes: 20, fractions: [0.0, 0.11, 0.22, 0.33], target_reward_tau: 0.5, bootstrap_samples: 300}
+theory: {L_pi: 1.0, L_r: 1.0, gamma: 0.99}
+output: {dir: outputs/example}
